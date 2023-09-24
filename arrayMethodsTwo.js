@@ -9,8 +9,7 @@ let numbers = [40, 68, 14, 90, 49];
     Use forEach method to loop though all the elements in the 'numbers' array above, and divide each element (number) by 2. Print the result in console.
 */
 
-// CODE HERE
-
+numbers.forEach((element) => console.log(element / 2));
 
 ////////// PROBLEM 2 //////////
 
@@ -22,8 +21,9 @@ let numbers = [40, 68, 14, 90, 49];
     NOTE: make sure you save the code in a variable, then console.log the variable to see the new array.
 */
 
-// CODE HERE
+const halfNumbers = numbers.map((element) => element / 2);
 
+console.log(halfNumbers);
 
 ////////// PROBLEM 3 //////////
 
@@ -49,8 +49,9 @@ let cities = [
     Make sure you save the code in a variable. Then, console.log the variable to see the new array.
 */
 
-// CODE HERE
+const filteredCities = cities.filter((city) => city.endsWith("i"));
 
+console.log(filteredCities);
 
 ////////// PROBLEM 4 //////////
 
@@ -85,12 +86,20 @@ let fruits = [
     Note: do a google search on how to find an element's index of an array in Javascript. There is a built-in Javascript method that would help you find an index of an element in an array.
 */
 
-// CODE HERE
-
-
+fruits.forEach((fruit, index) => {
+  if (fruit.color === "red" && fruit.name === "apple") {
+    console.log(`The fruit with index ${index} is an apple.`);
+  } else if (fruit.color === "orange" && fruit.name === "orange") {
+    console.log(`The fruit with index ${index} is an orange.`);
+  } else {
+    console.log(`The fruit with index ${index} is neither apple nor orange.`);
+  }
+});
 
 /* 
     Run the code in node to see the result. Then, copy and paste the result below.
+
+
 
     NOTE: the result should look like this:
     The fruit with index 0 is neither apple or orange
@@ -100,9 +109,10 @@ let fruits = [
 */
 
 // COPY AND PASTE THE RESULT FROM YOUR CONSOLE (NODE CONSOLE IS YOUR TERMINAL) HERE (AS A MULTI LINES COMMENT)
-
-
-
+// The fruit with index 0 is neither apple nor orange.
+// The fruit with index 1 is an orange.
+// The fruit with index 2 is neither apple nor orange.
+// The fruit with index 3 is an apple.
 ////////// PROBLEM 5 //////////
 
 // ***** Do not edit the code below *****
@@ -144,8 +154,13 @@ let foods = [
     Count the total price of foods that have "rice" tag. Please type the result too.
 */
 
-// CODE HERE
-
+const CostOfRiceFoods = foods.reduce((acc, curr) => {
+  if (curr.tags.includes("rice")) {
+    return acc + curr.price;
+  } else {
+    return acc;
+  }
+}, 0);
 
 // THE TOTAL
-
+console.log(CostOfRiceFoods);
